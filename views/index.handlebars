@@ -1,0 +1,44 @@
+<!-- ./views/index.handlebars -->
+<div class="container mt-5">
+
+
+
+
+  <!-- search bar -->
+  <div class="row" id="search-bar">
+    <div class="col-12">
+      <!-- 定義 action="/search" 跟 method="get"，讓執行搜尋動作後去對應到 /search 路由路徑-->
+      <form action="/search" method="get">
+        <div class="input-group mb-3">
+          <!-- 定義 name="keyword"，後可用req.query.keyword 找出輸入之字串 -->
+          <!-- 定義 value="{{keyword}} 讓輸入之字串預設顯示在form之中"  -->
+          <input type="text" name="keyword" class="form-control" placeholder="Enter movie name to search..."
+            aria-label="Movie Name..." aria-describedby="search-button" value="{{keyword}}">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit" id="search-button">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- movie list -->
+  <div class="row" id="data-panel">
+
+    {{#each movies}}
+    <div class="col-sm-3">
+      <a href="/movies/{{ this.id }}" class="text-secondary">
+        <div class="card mb-2">
+          <img class="card-img-top" src="https://movie-list.alphacamp.io/posters/{{ this.image }}" alt="Card image cap">
+          <div class="card-body movie-item-body">
+            <h6 class="card-title">{{ this.title }}</h6>
+          </div>
+        </div>
+      </a>
+    </div>
+
+
+    {{/each}}
+
+
+  </div>
+</div>
