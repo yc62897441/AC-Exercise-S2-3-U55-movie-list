@@ -24,3 +24,9 @@ cd AC-Exercise-S2-3-U55-movie-list
 ```
 npm install
 ```
+
+4. Run project
+```
+nodemon app.js
+```
+
